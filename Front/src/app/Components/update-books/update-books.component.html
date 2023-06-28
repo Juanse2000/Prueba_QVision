@@ -1,0 +1,52 @@
+<div class="modal fade" id="ModalUpdate" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" #modal>
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalToggleLabel">Actualizar Libro</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="details != null">
+            <form class="row g-3 needs-validation" #formUpdate="ngForm" (ngSubmit)="sendDataBookUpdate(formUpdate)">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <ul class="list-group mb-3">
+                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required hidden name="Id" [(ngModel)]="bookUpdate.IdLibro" >
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                            <h4 class="my-0">Nombre libro</h4>
+                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required name="Titulo" [(ngModel)]="bookUpdate.Titulo" >
+                            </div>
+                            <span class="text-muted"><i class="fa-solid fa-book"></i></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                            <h4 class="my-0">Nro Paginas</h4>
+                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required name="NPaginas" [(ngModel)]="bookUpdate.NPaginas">
+                            </div>
+                            <span class="text-muted"><i class="fa-solid fa-hashtag"></i></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                            <h4 class="my-0">Sinopsis</h4>
+                            <textarea class="form-control" aria-label="With textarea" required name="Sinopsis" [(ngModel)]="bookUpdate.Sinopsis"></textarea>
+                            </div>
+                            <span class="text-muted"><i class="fa-solid fa-quote-right"></i></span>
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <button class="btn btn-success" type="submit" data-bs-dismiss="modal">Actualizar Libro</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+

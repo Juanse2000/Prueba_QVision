@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-md-1"></div>
+  
+      <div class="col-md-9">
+        <h1 class="bd-title" id="content">Libros </h1>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-success" routerLink="/addBooks">
+          <i class="fa-solid fa-circle-plus"></i>
+        </button>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre Libro</th>
+              <th scope="col">Nro Paginas</th>
+              <th scope="col">Sinopsis</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of listBooks; let i = index">
+              <th scope="row">{{book.idLibro}}</th>
+              <td>{{book.nombreLibro}}</td>
+              <td>{{book.paginas}}</td>
+              <td>{{book.sinopsis}}</td>
+              <td>
+                <button type="button" class="btn btn-secondary btn-sm mx-3" (click)="seeDetails(book.idLibro)">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" (click)="updateBooks(book.idLibro)">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <app-see-details #seeDetailsComponent></app-see-details>
+        <app-update-books #updateBooksComponent></app-update-books>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  

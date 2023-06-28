@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-3"></div>
+            <div class="col-md-6"> 
+                <h1 class="bd-title" id="content">Agregar Libro</h1>
+            </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+        <form class="row g-3 needs-validation" #form="ngForm" (ngSubmit)="sendDataBook(form)">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-book"></i></span>
+                            <input type="text" class="form-control" placeholder="Nombre del libro..." aria-label="Username" aria-describedby="basic-addon1" required [(ngModel)]="book.infoBasica.Titulo" name="Titulo">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-hashtag"></i></span>
+                            <input type="text" class="form-control" placeholder="Nro paginas..." aria-label="Username" aria-describedby="basic-addon1" required required [(ngModel)]="book.infoBasica.NPaginas" name="NPaginas">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-quote-right"></i></span>
+                    <textarea class="form-control" aria-label="With textarea" placeholder="Sinopsis del libro..." required required [(ngModel)]="book.infoBasica.Sinopsis" name="Sinopsis"></textarea>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-user"></i></span>
+                            <select class="form-select" aria-label="Default select example" required [(ngModel)]="book.idAutor" name="idAutor">
+                                <option [value]="null" disabled selected>Seleccione un autor</option>
+                                <option *ngFor="let autor of listAutores; let i = index" [value]="autor.idAutor">{{ autor.nombre }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-user"></i></span>
+                            <select class="form-select" aria-label="Default select example" required [(ngModel)]="book.infoBasica.IdEditorial" name="IdEditorial">
+                                <option [value]="null" disabled selected>Seleccione una editorial</option>
+                                <option *ngFor="let editorial of listEditorial; let i = index" [value]="editorial.idEditorial">{{ editorial.nombre }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <button class="btn btn-success" type="submit">Agregar Libro</button>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

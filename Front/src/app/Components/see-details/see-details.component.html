@@ -1,0 +1,85 @@
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" #modal>
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalToggleLabel">Detalle</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="details != null">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group mb-3">
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h4 class="my-0">Nombre libro</h4>
+                          <p class="text-muted">{{details.nombreLibro}}</p>
+                        </div>
+                        <span class="text-muted"><i class="fa-solid fa-book"></i></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h4 class="my-0">Nro Paginas</h4>
+                          <p class="text-muted">{{details.paginas}}</p>
+                        </div>
+                        <span class="text-muted"><i class="fa-solid fa-hashtag"></i></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h4 class="my-0">Sinopsis</h4>
+                          <p class="text-muted">{{details.sinopsis}}</p>
+                        </div>
+                        <span class="text-muted"><i class="fa-solid fa-quote-right"></i></span>
+                      </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group mb-3">
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h4 class="my-0">Editorial</h4>
+                          <p class="text-muted">{{details.editorial}}</p>
+                        </div>
+                        <span class="text-muted"><i class="fa-solid fa-spell-check"></i></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h4 class="my-0">Sede</h4>
+                          <p class="text-muted">{{details.sede}}</p>
+                        </div>
+                        <span class="text-muted"><i class="fa-solid fa-city"></i></span>
+                      </li>
+                    </ul>
+            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-10">
+                    <h2 class="bd-title" id="content">Autores </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre autor</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let autor of details.autores; let i = index">
+                            <th scope="row">{{(i+1)}}</th>
+                            <td>{{autor.nombre}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
